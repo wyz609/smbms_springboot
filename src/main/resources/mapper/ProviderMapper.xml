@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wen.fist_springboot_smbms.mapper.ProviderMapper">
+
+    <!-- 获取供应商总数 -->
+    <select id="getProviderCounts" resultType="int">
+        SELECT COUNT(*) FROM smbms_provider
+        <where>
+            <if test="proCode != null and proCode != ''"> AND proCode = #{proCode} </if>
+            <if test="proName != null and proName != ''"> AND proName LIKE CONCAT('%', #{proName}, '%') </if>
+        </where>
+    </select>
+
+    <!-- 获取供应商列表（分页） -->
+    <select id="getProviderList" resultType="com.wen.fist_springboot_smbms.pojo.Provider">
+        SELECT * FROM smbms_provider
+        <where>
+            <if test="proCode != null and proCode != ''"> AND proCode = #{proCode} </if>
+            <if test="proName != null and proName != ''"> AND proName LIKE CONCAT('%', #{proName}, '%') </if>
+        </where>
+        ORDER BY creationDate DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 添加供应商 -->
+    <insert id="addProvider" parameterType="com.wen.fist_springboot_smbms.pojo.Provider">
+        INSERT INTO smbms_provider (proCode, proName, proContact, proPhone, proAddress, proFax, proDesc, createdBy, creationDate)
+        VALUES (#{proCode}, #{proName}, #{proContact}, #{proPhone}, #{proAddress}, #{proFax}, #{proDesc}, #{createdBy}, #{creationDate})
+    </insert>
+
+    <!-- 删除供应商 -->
+    <delete id="deleteProvider">
+        DELETE FROM smbms_provider WHERE id = #{id}
+    </delete>
+
+    <!-- 根据 ID 查找供应商 -->
+    <select id="findById" resultType="com.wen.fist_springboot_smbms.pojo.Provider">
+        SELECT * FROM smbms_provider WHERE id = #{id}
+    </select>
+
+    <!-- 修改供应商 -->
+    <update id="modifyProvider" parameterType="com.wen.fist_springboot_smbms.pojo.Provider">
+        UPDATE smbms_provider
+        SET proCode = #{proCode}, proName = #{proName}, proDesc = #{proDesc},
+            proContact = #{proContact}, proPhone = #{proPhone}, proAddress = #{proAddress}, proFax = #{proFax},
+            modifyDate = #{modifyDate}, modifyBy = #{modifyBy}
+        WHERE id = #{id}
+    </update>
+
+</mapper>
