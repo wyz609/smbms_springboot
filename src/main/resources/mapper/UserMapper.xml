@@ -15,9 +15,9 @@
 <!--    更新用户信息-->
     <update id="modify">
         UPDATE smbms_user
-        SET userName = #{userName}, gender = #{gender}, birthday = #{birthday},
-            phone = #{phone}, address = #{address}, userRole = #{userRole},
-            modifyBy = #{modifyBy}, modifyDate = #{modifyDate}
+        SET userName = #{user.userName}, gender = #{user.gender}, birthday = #{user.birthday},
+            phone = #{user.phone}, address = #{user.address}, userRole = #{user.userRole},
+            modifyBy = #{user.modifyBy}, modifyDate = #{user.modifyDate}
         WHERE id = #{id}
     </update>
 

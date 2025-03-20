@@ -89,7 +89,7 @@ public class ProviderMapperTest {
         Provider provider = providerMapper.findById(1);
         if(provider != null){
             provider.setProContact("张国栋");
-            int result = providerMapper.modifyProvider(provider);
+            int result = providerMapper.modifyProvider(provider.getId(),provider);
             System.out.println("修改供应商结果：" + result);
             assertEquals(result, 1);
         }else{

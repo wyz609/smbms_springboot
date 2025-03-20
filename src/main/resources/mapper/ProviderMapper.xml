@@ -59,9 +59,15 @@
     <!-- 修改供应商 -->
     <update id="modifyProvider" parameterType="com.wen.fist_springboot_smbms.pojo.Provider">
         UPDATE smbms_provider
-        SET proCode = #{proCode}, proName = #{proName}, proDesc = #{proDesc},
-            proContact = #{proContact}, proPhone = #{proPhone}, proAddress = #{proAddress}, proFax = #{proFax},
-            modifyDate = #{modifyDate}, modifyBy = #{modifyBy}
+        SET proCode = #{provider.proCode},
+            proName = #{provider.proName},
+            proDesc = #{provider.proDesc},
+            proContact = #{provider.proContact},
+            proPhone = #{provider.proPhone},
+            proAddress = #{provider.proAddress},
+            proFax = #{provider.proFax},
+            modifyDate = #{provider.modifyDate},
+            modifyBy = #{provider.modifyBy}
         WHERE id = #{id}
     </update>
 

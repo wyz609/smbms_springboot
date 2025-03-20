@@ -11,10 +11,18 @@
 <!--    修改订单信息-->
     <update id="modifyBill" parameterType="com.wen.fist_springboot_smbms.pojo.Bill">
         UPDATE smbms_bill
-        SET billCode = #{billCode}, productName = #{productName}, productDesc = #{productDesc},
-            productUnit = #{productUnit}, productCount = #{productCount}, totalPrice = #{totalPrice},
-            isPayment = #{isPayment}, createdBy = #{createdBy}, creationDate = #{creationDate},
-            modifyBy = #{modifyBy}, modifyDate = #{modifyDate}, providerId = #{providerId}
+        SET billCode = #{bill.billCode},
+            productName = #{bill.productName},
+            productDesc = #{bill.productDesc},
+            productUnit = #{bill.productUnit},
+            productCount = #{bill.productCount},
+            totalPrice = #{bill.totalPrice},
+            isPayment = #{bill.isPayment},
+            createdBy = #{bill.createdBy},
+            creationDate = #{bill.creationDate},
+            modifyBy = #{bill.modifyBy},
+            modifyDate = #{bill.modifyDate},
+            providerId = #{bill.providerId}
         WHERE id = #{id}
     </update>
 <!--    根据ID删除订单-->

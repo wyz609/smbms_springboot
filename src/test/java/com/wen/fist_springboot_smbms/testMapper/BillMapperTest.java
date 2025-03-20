@@ -91,7 +91,7 @@ public class BillMapperTest {
         Bill billId = billMapper.findByBillId(16);
         billId.setProductName("百事可乐");
 
-        int updateResult = billMapper.modifyBill(billId);
+        int updateResult = billMapper.modifyBill(billId.getId(),billId);
         System.out.println("修改结果：" + updateResult);
         assertEquals(1, updateResult);
 

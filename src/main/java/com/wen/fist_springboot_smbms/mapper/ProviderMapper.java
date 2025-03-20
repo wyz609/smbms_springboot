@@ -34,6 +34,7 @@ public interface ProviderMapper {
     Provider findById(@Param("id") int id);
 
     // 修改供应商
-    int modifyProvider(Provider provider);
+    int modifyProvider(@Param("id") Integer id, @Param("provider") Provider provider);
+
 
 }

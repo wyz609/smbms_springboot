@@ -25,7 +25,7 @@ public class User {
     private String userName; // 用户名
     private String userPassword;
     private Integer gender; //性别
-    private LocalDate birthday;
+    private Date birthday;
     private String phone;
     private String address;
     private Integer userRole;
@@ -37,16 +37,10 @@ public class User {
     private String userRoleName;
 
     public Integer getAge(){
-        AgeCalculator ageCalculator = new AgeCalculator();
-        this.age = ageCalculator.calculateAge(this.birthday);
+        Date date = new Date();
+        Integer age = date.getYear() - birthday.getYear();
         return age;
     }
-}
 
-class AgeCalculator{
-    public int calculateAge(LocalDate birthday){
-        LocalDate now = LocalDate.now();
-        return Period.between(birthday, now).getYears();
-    }
 }
 

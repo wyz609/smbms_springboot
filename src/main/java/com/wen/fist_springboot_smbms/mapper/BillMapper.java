@@ -38,6 +38,6 @@ public interface BillMapper {
     // 根据订单 ID 查询订单
     Bill findByBillId(@Param("id") int id);
     // 修改订单信息
-    int modifyBill(Bill bill);
+    int modifyBill(@Param("id") int billId,@Param("bill") Bill bill);
 }
 

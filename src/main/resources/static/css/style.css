@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 登录页面 */
+.login_bg {
+    background: url("../images/darkLoginBg.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.loginBox {
+    width: 960px;
+    margin: 0 auto;
+    background: url("../images/darkLoginBg.jpg") center no-repeat;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.loginHeader {
+    padding-top: 80px;
+    text-align: center;
+    padding-bottom: 28px;
+}
+
+.loginHeader h1 {
+    color: #f5f5f5;
+    text-shadow: 2px 2px #222;
+}
+
+.loginCont {
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.formBox {
+    position: relative;
+}
+
+/* 输入框默认字体 */
+::-webkit-input-placeholder {
+    color: rgb(180, 180, 180);
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    color: rgb(180, 180, 180);
+    font-style: italic;
+}
+
+input {
+    outline: none;
+}
+
+/* 登录表单 */
+.loginForm {
+    background: url("../images/darkFormBg.png") center no-repeat;
+    width: 340px;
+    height: 160px;
+    border-radius: 10px;
+    padding: 90px 35px 50px;
+}
+
+.loginForm label {
+    width: 25%;
+    display: inline-block;
+    color: #ddd;
+}
+
+.inputbox {
+    height: 60px;
+}
+
+.info {
+    color: red;
+    font-weight: bold;
+}
+
+.inputbox input {
+    width: 70%;
+    padding: 12px 8px 12px 18px;
+    border: 1px solid rgb(140, 140, 140);
+    border-radius: 6px;
+    box-shadow: inset 0px 1px 5px rgba(150, 150, 150, 0.6);
+}
+
+/* 输入框聚焦效果 */
+.inputbox input:focus {
+    border: 1px solid rgba(70, 70, 180, 0.7);
+    background: rgba(230, 230, 255, 0.1);
+    box-shadow: inset 0px 1px 5px rgba(70, 70, 180, 0.8);
+}
+
+.subBtn {
+    margin-left: 75px;
+}
+
+/* 按钮样式 */
+input[type='submit'], input[type='reset'], .providerView a {
+    width: 35%;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #5555dd, #4444bb);
+    padding: 7px 20px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    border: 1px solid #3333aa;
+    border-radius: 6px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type='submit']:hover, input[type='reset']:hover {
+    background: #3333aa;
+}
+
+input[type='submit']:active, input[type='submit']:focus,
+input[type='reset']:active, input[type='reset']:focus {
+    background: #222288;
+    border: 1px solid rgb(20, 50, 100);
+    box-shadow: inset 0px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 供应商管理页面 */
+.providerTable {
+    width: 100%;
+    border: 1px solid #555;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.providerTable tr {
+    height: 32px;
+    text-align: center;
+}
+
+.providerTable tr:nth-child(odd) {
+    background: #2b2b2b;
+}
+
+.providerTable tr:hover {
+    background: #414141;
+}
+
+.firstTr {
+    background: linear-gradient(to bottom, #3a3a3a, #262626);
+    color: #fff;
+}
+
+.providerTable td a {
+    display: inline-block;
+    margin-right: 12px;
+    padding: 5px 10px;
+    color: #ddd;
+}
+
+/* 供应商信息查看 */
+.providerView {
+    margin: 22px 0;
+    font-size: 18px;
+    line-height: 32px;
+    padding-top: 32px;
+    border: 1px dashed #444;
+    color: #ccc;
+}
+
+.providerView strong {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+}
+
+.providerView span {
+    color: #ff6666;
+}
+
+.providerView a {
+    margin-left: 500px;
+    top: 60px;
+}
+
+/* 供应商添加 */
+.providerAdd {
+    border: 1px solid #666;
+    padding: 22px;
+    margin: 22px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.providerAdd label {
+    width: 200px;
+    display: inline-block;
+    text-align: right;
+    color: #ddd;
+}
+
+.providerAdd input, .providerAdd select {
+    width: 260px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 6px;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid #555;
+    box-shadow: 1px 1px 1px #666;
+    background: #222;
+    color: #fff;
+}
+
+/* 删除弹出层 */
+.zhezhao {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.75;
+}
+
+.remove {
+    display: none;
+    width: 420px;
+    height: 200px;
+    position: absolute;
+    top: 220px;
+    left: 480px;
+    background: #222;
+    border-radius: 6px;
+}
+
+.removeMain a {
+    padding: 0 22px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 6px;
+    border: 1px solid #225599;
+    background: #4466ff;
+    color: #fff;
+}
+
+.removeMain a:hover {
+    background: #2244cc;
+}
+
+/* 分页 */
+.page-bar {
+    position: relative;
+    margin-top: 12px;
+}
+
+.page-num-ul li {
+    float: left;
+}
+
+.page-num-ul li a {
+    display: inline-block;
+    padding: 4px 6px;
+    border: 1px solid #777;
+}
+
+.page-num-ul a:hover, .page-num-ul .thisclass {
+    border: 1px solid #ff3333;
+    background-color: #ff3333;
+    color: #FFF;
+}

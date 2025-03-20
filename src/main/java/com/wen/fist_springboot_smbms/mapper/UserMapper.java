@@ -32,5 +32,5 @@ public interface UserMapper {
 
     User findById(@Param("id") int id);
 
-    int modify(@Param("id") int id, User user);
+    int modify(@Param("id") int id, @Param("user") User user);
 }
