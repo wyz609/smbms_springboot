@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wen.fist_springboot_smbms.mapper.UserMapper">
+<!--    添加用户-->
+    <insert id="addUser">
+        INSERT INTO smbms_user
+        (userCode, userName, userPassword, gender, birthday, phone, address, userRole, createdBy, creationDate)
+        VALUES
+            (#{userCode}, #{userName}, #{userPassword}, #{gender}, #{birthday}, #{phone}, #{address}, #{userRole}, #{createdBy}, #{createDate})
+    </insert>
+<!--    更新用户密码-->
+    <update id="updatePassword">
+        UPDATE smbms_user SET userPassword = #{newPsd} WHERE id = #{id}
+    </update>
+<!--    更新用户信息-->
+    <update id="modify">
+        UPDATE smbms_user
+        SET userName = #{userName}, gender = #{gender}, birthday = #{birthday},
+            phone = #{phone}, address = #{address}, userRole = #{userRole},
+            modifyBy = #{modifyBy}, modifyDate = #{modifyDate}
+        WHERE id = #{id}
+    </update>
+
+<!--    删除用户-->
+    <delete id="deleteUser">
+        DELETE FROM smbms_user WHERE id = #{id}
+    </delete>
+<!--    登录查询用户信息-->
+    <select id="getLoginInfo" resultType="com.wen.fist_springboot_smbms.pojo.User">
+        SELECT * FROM smbms_user WHERE userCode = #{userCode}
+    </select>
+<!--    查询用户总数-->
+    <select id="getUserCounts" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM smbms_user u, smbms_role r WHERE u.userROle = r.id
+        <if test="username != null and username != ''">
+            AND u.userName LIKE CONCAT('%',#{username},'%')
+        </if>
+        <if test="userRole > 0">
+            AND u.userRole = #{userRole}
+        </if>
+    </select>
+<!--    查询用户列表(分页)-->
+    <select id="getUserList" resultType="com.wen.fist_springboot_smbms.pojo.User">
+        SELECT u.*,r.roleName AS userRoleName
+        FROM smbms_user u
+        LEFT JOIN smbms_role r ON u.userRole = r.id
+    </select>
+<!--    更具用户ID进行查询-->
+    <select id="findById" resultType="com.wen.fist_springboot_smbms.pojo.User">
+        SELECT u.*, r.roleName AS userRoleName
+        FROM smbms_user u
+        LEFT JOIN smbms_role r ON u.userRole = r.id
+        WHERE u.id = #{id}
+    </select>
+</mapper>

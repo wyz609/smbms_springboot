@@ -1,7 +1,7 @@
 package com.wen.fist_springboot_smbms.pojo;
 
-import lombok.Data;
-import lombok.ToString;
+
+import lombok.*;
 
 import java.util.Date;
 
@@ -15,7 +15,10 @@ import java.util.Date;
  * @Version: 1.0
  */
 @Data
+@Builder
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Provider {
     private Integer id;   //id
     private String proCode; //供应商编码
